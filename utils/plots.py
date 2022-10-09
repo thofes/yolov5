@@ -567,10 +567,22 @@ def save_one_box(xyxy, im, file=Path('im.jpg'), gain=1.02, pad=10, square=False,
     xyxy = xywh2xyxy(b).long()
     clip_boxes(xyxy, im.shape)
 
+
     xyxy[0, 1] = int(xyxy[0, 1])-50
+    if xyxy[0, 1] < 0:
+        xyxy[0, 1] = 0
+
     xyxy[0, 3] = int(xyxy[0, 3])+50
+    if xyxy[0, 3] > 1920:
+        xyxy[0, 3] = 1920
+
     xyxy[0, 0] = int(xyxy[0, 0])-50
+    if xyxy[0, 0] < 0:
+        xyxy[0, 0] = 0 
+
     xyxy[0, 2] = int(xyxy[0, 2])+50
+    if xyxy[0, 2] > 1080:
+        xyxy[0, 2] = 1080
 
 
 
