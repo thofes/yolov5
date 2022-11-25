@@ -576,11 +576,11 @@ def save_one_box(xyxy, im, file=Path('im.jpg'), gain=1.02, pad=10, square=False,
     if xyxy[0, 3] > 1080:
         xyxy[0, 3] = 1080
 
-    xyxy[0, 0] = int(xyxy[0, 0])-50
+    xyxy[0, 0] = int(xyxy[0, 0])-70
     if xyxy[0, 0] < 0:
         xyxy[0, 0] = 0 
 
-    xyxy[0, 2] = int(xyxy[0, 2])+50
+    xyxy[0, 2] = int(xyxy[0, 2])+70
     if xyxy[0, 2] > 1920:
         xyxy[0, 2] = 1920
 
