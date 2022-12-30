@@ -171,7 +171,9 @@ def run(
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
                     data["conf"].append(float(conf))
-                    data["index"].append(indexrun)
+                    #print("Test ", path[-10:-4])
+                    data["index"].append(path[-10:-4])
+                    #data["index"].append(indexrun)
                     data["cls"].append(int(cls))
                     
                     xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
@@ -198,7 +200,9 @@ def run(
                         save_one_box(xyxy, imc, file=save_dir / 'crops' / f'{p.stem}.jpg', BGR=True)
             else:
               data["conf"].append(0)
-              data["index"].append(indexrun)
+              #data["index"].append(indexrun)
+              #print("Test ", path[-10:-4])
+              data["index"].append(path[-10:-4])
               data["cls"].append(9)
             # Stream results
             im0 = annotator.result()
